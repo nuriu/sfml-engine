@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
 
-// #define DEKSTOP_FULLSCREEN
+// #define DESKTOP_FULLSCREEN
 
 int main()
 {
 
-#ifdef DEKSTOP_FULLSCREEN
+#ifdef DESKTOP_FULLSCREEN
     auto desktop = sf::VideoMode::getDesktopMode();
     auto windowMode = sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel);
     sf::RenderWindow window(windowMode, "Game", sf::Style::Fullscreen);
