@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": ["${env:SFML_ROOT}/include", "${workspaceFolder}/**"],
+      "compilerPath": "${env:MinGW_LOCATION}/bin/g++.exe",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    },
+    {
+      "name": "Linux",
+      "includePath": ["${env:SFML_ROOT}/include", "${workspaceFolder}/**"],
+      "compilerPath": "/usr/bin/g++.exe",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    }
+  ],
+  "version": 4
+}

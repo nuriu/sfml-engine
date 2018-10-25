@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/game",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing"
+        }
+      ],
+      "windows": {
+        "miDebuggerPath": "${env:MinGW_LOCATION}/bin/gdb.exe"
+      },
+      "linux": {
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+      "preLaunchTask": "build debug"
+    },
+    {
+      "name": "Run",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/build/release/game",
+      "MIMode": "gdb",
+      "windows": {
+        "miDebuggerPath": "${env:MinGW_LOCATION}/bin/gdb.exe"
+      },
+      "linux": {
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+      "preLaunchTask": "build release"
+    }
+  ]
+}
