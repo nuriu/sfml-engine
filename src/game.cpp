@@ -2,14 +2,18 @@
 
 // #define GAME_FULLSCREEN
 
-Game::Game(const sf::String &title, const unsigned int width, const unsigned int height)
+Game::Game(const sf::String &title, const unsigned int width,
+           const unsigned int height)
 {
 #ifdef GAME_FULLSCREEN
     auto desktop = sf::VideoMode::getDesktopMode();
-    auto windowMode = sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel);
-    m_Window = std::make_unique<sf::RenderWindow>(windowMode, title, sf::Style::Fullscreen);
+    auto windowMode = sf::VideoMode(desktop.width, desktop.height,
+                                    desktop.bitsPerPixel);
+    m_Window = std::make_unique<sf::RenderWindow>(windowMode, title,
+                                                  sf::Style::Fullscreen);
 #else
-    m_Window = std::make_unique<sf::RenderWindow>(sf::VideoMode(width, height), title);
+    m_Window = std::make_unique<sf::RenderWindow>(sf::VideoMode(width, height),
+                                                  title);
 #endif
 
     m_Shape = std::make_unique<sf::CircleShape>(100.f);
@@ -35,7 +39,8 @@ void Game::processEvents()
     while (m_Window->pollEvent(event))
     {
         if ((event.type == sf::Event::Closed) ||
-            ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
+            ((event.type == sf::Event::KeyPressed) &&
+             (event.key.code == sf::Keyboard::Escape)))
         {
             m_Window->close();
             break;
@@ -45,6 +50,7 @@ void Game::processEvents()
 
 void Game::update()
 {
+    float deltaTime = m_Clock.restart().asSeconds();
 }
 
 void Game::render()

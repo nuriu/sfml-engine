@@ -11,7 +11,8 @@
 class Game
 {
   public:
-    Game(const sf::String &title, const unsigned int width, const unsigned int height);
+    Game(const sf::String &title, const unsigned int width,
+         const unsigned int height);
 
     void run();
 
@@ -23,6 +24,8 @@ class Game
   private:
     std::unique_ptr<sf::RenderWindow> m_Window;
     std::unique_ptr<sf::CircleShape> m_Shape;
+
+    sf::Clock m_Clock;
 };
 
 #endif
