@@ -8,7 +8,7 @@
         "command": "build-debug.bat"
       },
       "linux": {
-        "command": "build-debug.sh"
+        "command": "${workspaceFolder}/build-debug.sh"
       },
       "group": {
         "kind": "build",
@@ -22,7 +22,7 @@
         "command": "build-release.bat"
       },
       "linux": {
-        "command": "build-release.sh"
+        "command": "${workspaceFolder}/build-release.sh"
       },
       "group": {
         "kind": "build",

@@ -9,7 +9,7 @@
     },
     {
       "name": "Linux",
-      "includePath": ["${env:SFML_ROOT}/include", "${workspaceFolder}/**"],
+      "includePath": ["${workspaceFolder}/**"],
       "compilerPath": "/usr/bin/g++.exe",
       "cStandard": "c11",
       "cppStandard": "c++17"

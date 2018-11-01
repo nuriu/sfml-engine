@@ -2,23 +2,26 @@
 
 > Project template for SFML development based on CMake build system.
 
-It supports building (via MinGW) and debugging (via gdb) from inside of the VS Code (via C/C++ Extension).
+It supports building (via MinGW or via directly GCC on Unix) and debugging (via gdb) from inside of the VS Code (via C/C++ Extension).
 
 Have two VS Code tasks for debug and release builds respectively.
 
 You can find Bash and Bat script files which used for building in the root of the source tree.
 
-Following environment variables should exist before building;
+Following environment variables should exist before building (Win32 only);
 
 - SFML_ROOT should point to sfml root directory
-- MinGW_LOCATION should point to mingw directory (windows only)
+- MinGW_LOCATION should point to mingw directory
 
-It didn't tested on Linux and any help about the unix-side compability is appreciated.
+To analyze code with clang-tidy and cppcheck on Unix platforms, just run;
+
+> ./analyze.sh
 
 Tested with:
 
 - SFML 2.5.1
-- GCC 7.3.0 (via MinGW on Windows 10)
-- CMake 3.12.0-rc1
-- VS Code 1.28.2
-  - C/C++ for Visual Studio Code: 0.19.0
+- GCC 7.3.0 (via MinGW on Win10)
+- GCC 8.2.1 (on Manjaro 18.0.0)
+- CMake 3.12.3
+- VS Code 1.27.2
+  - C/C++ for Visual Studio Code: 0.20.1
