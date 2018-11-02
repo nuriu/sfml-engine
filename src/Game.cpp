@@ -1,9 +1,12 @@
-#include "game.hpp"
+#include <Game.hpp>
 
 // #define GAME_FULLSCREEN
 
 Game::Game(const sf::String& title, const unsigned int width,
-           const unsigned int height) : m_Clock(std::make_unique<sf::Clock>())
+           const unsigned int height)
+    : m_SceneManager(std::make_unique<SceneManager>()),
+      m_Clock(std::make_unique<sf::Clock>()),
+      m_DeltaTime(0.f)
 {
 #ifdef GAME_FULLSCREEN
     auto desktop = sf::VideoMode::getDesktopMode();
@@ -16,11 +19,7 @@ Game::Game(const sf::String& title, const unsigned int width,
                title);
 #endif
 
-    m_Shape = std::make_unique<sf::CircleShape>(100.f);
-
-    m_Shape->setFillColor(sf::Color::Red);
-    m_Shape->setPosition(m_Window->getSize().x / 2.f - m_Shape->getRadius(),
-                         m_Window->getSize().y / 2.f - m_Shape->getRadius());
+    m_SceneManager->pushScene(ScenePtr(std::make_unique<GameScene>(m_Window.get())), true);
 }
 
 void Game::run()
@@ -47,16 +46,22 @@ void Game::processEvents()
             break;
         }
     }
+
+    m_SceneManager->getActiveScene()->processInput();
 }
 
 void Game::update()
 {
-    float deltaTime = m_Clock->restart().asSeconds();
+    m_DeltaTime = m_Clock->restart().asSeconds();
+
+    m_SceneManager->getActiveScene()->update(m_DeltaTime);
 }
 
 void Game::render()
 {
     m_Window->clear();
-    m_Window->draw(*m_Shape);
+
+    m_SceneManager->getActiveScene()->render();
+
     m_Window->display();
 }

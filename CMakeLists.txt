@@ -15,11 +15,16 @@ else()
 endif (WIN32)
 
 set(HEADERS
-            include/game.hpp)
+            include/Game.hpp
+            include/Scene.hpp
+            include/SceneManager.hpp
+            include/GameScene.hpp)
 
 set(SOURCES
             src/main.cpp
-            src/game.cpp)
+            src/Game.cpp
+            src/SceneManager.cpp
+            src/GameScene.cpp)
 
 source_group("Headers" FILES ${HEADERS})
 source_group("Sources" FILES ${SOURCES})
