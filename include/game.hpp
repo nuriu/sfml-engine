@@ -1,5 +1,5 @@
-#ifndef GAME
-#define GAME
+#ifndef GAME_HPP
+#define GAME_HPP
 #pragma once
 
 #include <memory>
@@ -27,4 +27,4 @@ class Game
     std::unique_ptr<sf::Clock> m_Clock;
 };
 
-#endif
+#endif // GAME_HPP
