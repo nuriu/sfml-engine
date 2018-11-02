@@ -24,8 +24,7 @@ class Game
   private:
     std::unique_ptr<sf::RenderWindow> m_Window;
     std::unique_ptr<sf::CircleShape> m_Shape;
-
-    sf::Clock m_Clock;
+    std::unique_ptr<sf::Clock> m_Clock;
 };
 
 #endif

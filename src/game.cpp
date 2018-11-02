@@ -3,7 +3,7 @@
 // #define GAME_FULLSCREEN
 
 Game::Game(const sf::String& title, const unsigned int width,
-           const unsigned int height)
+           const unsigned int height) : m_Clock(std::make_unique<sf::Clock>())
 {
 #ifdef GAME_FULLSCREEN
     auto desktop = sf::VideoMode::getDesktopMode();
@@ -51,7 +51,7 @@ void Game::processEvents()
 
 void Game::update()
 {
-    float deltaTime = m_Clock.restart().asSeconds();
+    float deltaTime = m_Clock->restart().asSeconds();
 }
 
 void Game::render()
