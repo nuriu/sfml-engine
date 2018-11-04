@@ -22,6 +22,7 @@ class Game
     std::unique_ptr<SceneManager> m_SceneManager;
     std::unique_ptr<sf::RenderWindow> m_Window;
     std::unique_ptr<sf::Clock> m_Clock;
+    std::unique_ptr<sf::Event> m_Event;
 
     float m_DeltaTime;
 

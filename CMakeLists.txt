@@ -18,12 +18,14 @@ set(HEADERS
             include/Game.hpp
             include/Scene.hpp
             include/SceneManager.hpp
+            include/InputManager.hpp
             include/GameScene.hpp)
 
 set(SOURCES
             src/main.cpp
             src/Game.cpp
             src/SceneManager.cpp
+            src/InputManager.cpp
             src/GameScene.cpp)
 
 source_group("Headers" FILES ${HEADERS})

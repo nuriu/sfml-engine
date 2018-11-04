@@ -6,6 +6,7 @@ Game::Game(const sf::String& title, const unsigned int width,
            const unsigned int height)
     : m_SceneManager(std::make_unique<SceneManager>()),
       m_Clock(std::make_unique<sf::Clock>()),
+      m_Event(std::make_unique<sf::Event>()),
       m_DeltaTime(0.f)
 {
 #ifdef GAME_FULLSCREEN
@@ -19,7 +20,9 @@ Game::Game(const sf::String& title, const unsigned int width,
                title);
 #endif
 
-    m_SceneManager->pushScene(ScenePtr(std::make_unique<GameScene>(m_Window.get())), true);
+    m_SceneManager->pushScene(
+        ScenePtr(std::make_unique<GameScene>(m_Window.get())), true
+    );
 }
 
 void Game::run()
@@ -34,20 +37,18 @@ void Game::run()
 
 void Game::processEvents()
 {
-    sf::Event event;
-
-    while (m_Window->pollEvent(event))
+    while (m_Window->pollEvent(*m_Event))
     {
-        if ((event.type == sf::Event::Closed) ||
-                ((event.type == sf::Event::KeyPressed) &&
-                 (event.key.code == sf::Keyboard::Escape)))
+        if ((m_Event->type == sf::Event::Closed) ||
+                ((m_Event->type == sf::Event::KeyPressed) &&
+                 (m_Event->key.code == sf::Keyboard::Escape)))
         {
             m_Window->close();
             break;
         }
-    }
 
-    m_SceneManager->getActiveScene()->processInput();
+        m_SceneManager->getActiveScene()->processInput(*m_Event);
+    }
 }
 
 void Game::update()

@@ -4,10 +4,13 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include <Scene.hpp>
+#include <InputManager.hpp>
 
 #include <memory>
+#include <iostream>
 
 class GameScene : public Scene
 {
@@ -15,7 +18,7 @@ class GameScene : public Scene
     GameScene(sf::RenderWindow* window);
 
     void initialize() override;
-    void processInput() override;
+    void processInput(sf::Event& event) override;
     void update(float deltaTime) override;
     void render() const override;
     void pause() override;
@@ -24,6 +27,7 @@ class GameScene : public Scene
   private:
     sf::RenderWindow* m_RenderWindow;
 
+    std::unique_ptr<InputManager> m_InputManager;
     std::unique_ptr<sf::CircleShape> m_Shape;
 };
 
