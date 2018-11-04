@@ -19,6 +19,7 @@ set(HEADERS
             include/Scene.hpp
             include/SceneManager.hpp
             include/InputManager.hpp
+            include/AssetManager.hpp
             include/GameScene.hpp)
 
 set(SOURCES
@@ -26,6 +27,7 @@ set(SOURCES
             src/Game.cpp
             src/SceneManager.cpp
             src/InputManager.cpp
+            src/AssetManager.cpp
             src/GameScene.cpp)
 
 source_group("Headers" FILES ${HEADERS})

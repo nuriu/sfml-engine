@@ -3,6 +3,7 @@
 GameScene::GameScene(sf::RenderWindow* window)
     : m_RenderWindow(window),
       m_InputManager(std::make_unique<InputManager>()),
+      m_AssetManager(std::make_unique<AssetManager>()),
       m_Shape(std::make_unique<sf::CircleShape>())
 {
 

@@ -8,6 +8,7 @@
 
 #include <Scene.hpp>
 #include <InputManager.hpp>
+#include <AssetManager.hpp>
 
 #include <memory>
 #include <iostream>
@@ -28,6 +29,7 @@ class GameScene : public Scene
     sf::RenderWindow* m_RenderWindow;
 
     std::unique_ptr<InputManager> m_InputManager;
+    std::unique_ptr<AssetManager> m_AssetManager;
     std::unique_ptr<sf::CircleShape> m_Shape;
 };
 
