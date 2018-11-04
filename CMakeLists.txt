@@ -15,6 +15,7 @@ else()
 endif (WIN32)
 
 set(HEADERS
+            include/CoreComponents.hpp
             include/Game.hpp
             include/Scene.hpp
             include/SceneManager.hpp
