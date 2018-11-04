@@ -1,7 +1,7 @@
 file=''
 
 print_usage() {
-  printf "\nanalyze.sh is responsible from running static code analysises.\n"
+  printf "\nanalyze.sh is responsible from running static code analyses.\n"
   printf "\n\tUsage: \n"
   printf "\t\tanalyze.sh -f <file-to-analyze>\n"
 }
