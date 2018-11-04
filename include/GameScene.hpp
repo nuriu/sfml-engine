@@ -7,8 +7,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include <Scene.hpp>
-#include <InputManager.hpp>
-#include <AssetManager.hpp>
+#include <CoreComponents.hpp>
 
 #include <memory>
 #include <iostream>
@@ -16,20 +15,17 @@
 class GameScene : public Scene
 {
   public:
-    GameScene(sf::RenderWindow* window);
+    GameScene(std::shared_ptr<CoreComponents> components);
 
     void initialize() override;
-    void processInput(sf::Event& event) override;
-    void update(float deltaTime) override;
+    void processInput() override;
+    void update() override;
     void render() const override;
     void pause() override;
     void resume() override;
 
   private:
-    sf::RenderWindow* m_RenderWindow;
-
-    std::unique_ptr<InputManager> m_InputManager;
-    std::unique_ptr<AssetManager> m_AssetManager;
+    std::shared_ptr<CoreComponents> m_Components;
     std::unique_ptr<sf::CircleShape> m_Shape;
 };
 

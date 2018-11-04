@@ -5,7 +5,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <SceneManager.hpp>
+#include <CoreComponents.hpp>
 #include <GameScene.hpp>
 
 #include <memory>
@@ -19,12 +19,8 @@ class Game
     void run();
 
   private:
-    std::unique_ptr<SceneManager> m_SceneManager;
-    std::unique_ptr<sf::RenderWindow> m_Window;
+    std::shared_ptr<CoreComponents> m_Components;
     std::unique_ptr<sf::Clock> m_Clock;
-    std::unique_ptr<sf::Event> m_Event;
-
-    float m_DeltaTime;
 
     void processEvents();
     void update();

@@ -4,30 +4,28 @@
 
 Game::Game(const sf::String& title, const unsigned int width,
            const unsigned int height)
-    : m_SceneManager(std::make_unique<SceneManager>()),
-      m_Clock(std::make_unique<sf::Clock>()),
-      m_Event(std::make_unique<sf::Event>()),
-      m_DeltaTime(0.f)
+    : m_Components(std::make_shared<CoreComponents>()),
+      m_Clock(std::make_unique<sf::Clock>())
 {
 #ifdef GAME_FULLSCREEN
     auto desktop = sf::VideoMode::getDesktopMode();
     auto windowMode = sf::VideoMode(desktop.width, desktop.height,
                                     desktop.bitsPerPixel);
-    m_Window = std::make_unique<sf::RenderWindow>(windowMode, title,
-               sf::Style::Fullscreen);
+    m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(windowMode,
+                                   title, sf::Style::Fullscreen);
 #else
-    m_Window = std::make_unique<sf::RenderWindow>(sf::VideoMode(width, height),
-               title);
+    m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(
+                                       sf::VideoMode(width, height), title);
 #endif
 
-    m_SceneManager->pushScene(
-        ScenePtr(std::make_unique<GameScene>(m_Window.get())), true
+    m_Components->m_SceneManager->pushScene(
+        ScenePtr(std::make_unique<GameScene>(m_Components)), true
     );
 }
 
 void Game::run()
 {
-    while (m_Window->isOpen())
+    while (m_Components->m_RenderWindow->isOpen())
     {
         processEvents();
         update();
@@ -37,32 +35,29 @@ void Game::run()
 
 void Game::processEvents()
 {
-    while (m_Window->pollEvent(*m_Event))
+    while (m_Components->m_RenderWindow->pollEvent(*m_Components->m_Event))
     {
-        if ((m_Event->type == sf::Event::Closed) ||
-                ((m_Event->type == sf::Event::KeyPressed) &&
-                 (m_Event->key.code == sf::Keyboard::Escape)))
+        if ((m_Components->m_Event->type == sf::Event::Closed) ||
+                ((m_Components->m_Event->type == sf::Event::KeyPressed) &&
+                 (m_Components->m_Event->key.code == sf::Keyboard::Escape)))
         {
-            m_Window->close();
+            m_Components->m_RenderWindow->close();
             break;
         }
 
-        m_SceneManager->getActiveScene()->processInput(*m_Event);
+        m_Components->m_SceneManager->getActiveScene()->processInput();
     }
 }
 
 void Game::update()
 {
-    m_DeltaTime = m_Clock->restart().asSeconds();
-
-    m_SceneManager->getActiveScene()->update(m_DeltaTime);
+    m_Components->m_DeltaTime = m_Clock->restart().asSeconds();
+    m_Components->m_SceneManager->getActiveScene()->update();
 }
 
 void Game::render()
 {
-    m_Window->clear();
-
-    m_SceneManager->getActiveScene()->render();
-
-    m_Window->display();
+    m_Components->m_RenderWindow->clear();
+    m_Components->m_SceneManager->getActiveScene()->render();
+    m_Components->m_RenderWindow->display();
 }
