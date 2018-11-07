@@ -19,7 +19,7 @@ Game::Game(const sf::String& title, const unsigned int width,
 #endif
 
     m_Components->m_SceneManager->pushScene(
-        ScenePtr(std::make_unique<GameScene>(m_Components)), true
+        ScenePtr(std::make_unique<GameScene>(*m_Components)), true
     );
 }
 

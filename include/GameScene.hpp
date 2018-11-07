@@ -15,7 +15,7 @@
 class GameScene : public Scene
 {
   public:
-    GameScene(std::shared_ptr<CoreComponents> components);
+    GameScene(const CoreComponents& components);
 
     void initialize() override;
     void processInput() override;
@@ -25,7 +25,7 @@ class GameScene : public Scene
     void resume() override;
 
   private:
-    std::shared_ptr<CoreComponents> m_Components;
+    const CoreComponents& m_Components;
     std::unique_ptr<sf::CircleShape> m_Shape;
 };
 
