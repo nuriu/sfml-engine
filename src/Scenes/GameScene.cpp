@@ -1,4 +1,4 @@
-#include <GameScene.hpp>
+#include <Scenes/GameScene.hpp>
 
 GameScene::GameScene(const CoreComponents& components)
     : m_Components(components),

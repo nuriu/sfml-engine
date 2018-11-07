@@ -1,4 +1,4 @@
-#include <InputManager.hpp>
+#include <Managers/InputManager.hpp>
 
 bool InputManager::isKeyPressed(sf::Keyboard::Key key)
 {

@@ -6,7 +6,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include <CoreComponents.hpp>
-#include <GameScene.hpp>
+#include <Scenes/GameScene.hpp>
 
 #include <memory>
 

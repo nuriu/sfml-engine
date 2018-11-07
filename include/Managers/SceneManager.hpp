@@ -2,7 +2,7 @@
 #define SCENE_MANAGER_HPP
 #pragma once
 
-#include <Scene.hpp>
+#include <Scenes/Scene.hpp>
 
 #include <memory>
 #include <stack>

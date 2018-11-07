@@ -5,9 +5,9 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <SceneManager.hpp>
-#include <InputManager.hpp>
-#include <AssetManager.hpp>
+#include <Managers/SceneManager.hpp>
+#include <Managers/InputManager.hpp>
+#include <Managers/AssetManager.hpp>
 
 #include <memory>
 

@@ -6,7 +6,7 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <Scene.hpp>
+#include <Scenes/Scene.hpp>
 #include <CoreComponents.hpp>
 
 #include <memory>

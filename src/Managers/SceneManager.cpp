@@ -1,4 +1,4 @@
-#include <SceneManager.hpp>
+#include <Managers/SceneManager.hpp>
 
 void SceneManager::pushScene(ScenePtr scene, bool makeCurrent)
 {
@@ -16,7 +16,6 @@ void SceneManager::pushScene(ScenePtr scene, bool makeCurrent)
 
     m_Scenes.push(std::move(scene));
     m_Scenes.top()->initialize();
-
 }
 
 void SceneManager::popScene()
