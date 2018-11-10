@@ -35,11 +35,11 @@ void Game::run()
 
 void Game::processEvents()
 {
-    while (m_Components->m_RenderWindow->pollEvent(*m_Components->m_Event))
+    while (m_Components->m_RenderWindow->pollEvent(
+                *m_Components->m_InputManager->m_Event))
     {
-        if ((m_Components->m_Event->type == sf::Event::Closed) ||
-                ((m_Components->m_Event->type == sf::Event::KeyPressed) &&
-                 (m_Components->m_Event->key.code == sf::Keyboard::Escape)))
+        if (m_Components->m_InputManager->m_Event->type == sf::Event::Closed ||
+                m_Components->m_InputManager->isKeyPressed(sf::Keyboard::Escape))
         {
             m_Components->m_RenderWindow->close();
             break;

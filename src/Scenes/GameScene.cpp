@@ -18,8 +18,7 @@ void GameScene::initialize()
 
 void GameScene::processInput()
 {
-    if (m_Components.m_Event->type == sf::Event::KeyPressed &&
-            m_Components.m_InputManager->isKeyPressed(sf::Keyboard::H))
+    if (m_Components.m_InputManager->isKeyPressed(sf::Keyboard::H))
     {
         std::cout << "H is pressed." << std::endl;
     }
