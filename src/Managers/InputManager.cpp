@@ -1,6 +1,6 @@
 #include <Managers/InputManager.hpp>
 
-InputManager::InputManager() : m_Event(std::make_unique<sf::Event>()) { }
+InputManager::InputManager() : m_Event(std::make_unique<sf::Event>()) {}
 
 bool InputManager::isKeyPressed(sf::Keyboard::Key key)
 {

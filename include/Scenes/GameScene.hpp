@@ -25,7 +25,7 @@ class GameScene : public Scene
     void resume() override;
 
   private:
-    const CoreComponents& m_Components;
+    const CoreComponents&            m_Components;
     std::unique_ptr<sf::CircleShape> m_Shape;
 };
 

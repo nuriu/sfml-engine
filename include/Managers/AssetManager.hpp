@@ -22,13 +22,13 @@ class AssetManager
     void pauseSound(const std::string& name);
     void stopSound(const std::string& name);
 
-    sf::Font& getFont(const std::string& name);
+    sf::Font&    getFont(const std::string& name);
     sf::Texture& getTexture(const std::string& name);
 
   private:
-    std::map<std::string, sf::Font> m_Fonts;
-    std::map<std::string, sf::Sound> m_Sounds;
-    std::map<std::string, sf::Texture> m_Textures;
+    std::map<std::string, sf::Font>        m_Fonts;
+    std::map<std::string, sf::Sound>       m_Sounds;
+    std::map<std::string, sf::Texture>     m_Textures;
     std::map<std::string, sf::SoundBuffer> m_SoundBuffers;
 };
 

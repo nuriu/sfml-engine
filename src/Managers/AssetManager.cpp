@@ -17,7 +17,7 @@ void AssetManager::loadSound(const std::string& name, const std::string& path)
     if (buffer->loadFromFile(path))
     {
         m_SoundBuffers[name] = *buffer;
-        m_Sounds[name] = sf::Sound(m_SoundBuffers[name]);
+        m_Sounds[name]       = sf::Sound(m_SoundBuffers[name]);
     }
 }
 
@@ -31,20 +31,14 @@ void AssetManager::loadTexture(const std::string& name, const std::string& path)
     }
 }
 
-void AssetManager::playSound(const std::string& name)
-{
-    m_Sounds[name].play();
-}
+void AssetManager::playSound(const std::string& name) { m_Sounds[name].play(); }
 
 void AssetManager::pauseSound(const std::string& name)
 {
     m_Sounds[name].pause();
 }
 
-void AssetManager::stopSound(const std::string& name)
-{
-    m_Sounds[name].stop();
-}
+void AssetManager::stopSound(const std::string& name) { m_Sounds[name].stop(); }
 
 sf::Font& AssetManager::getFont(const std::string& name)
 {

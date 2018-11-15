@@ -1,10 +1,8 @@
 #include <Scenes/GameScene.hpp>
 
 GameScene::GameScene(const CoreComponents& components)
-    : m_Components(components),
-      m_Shape(std::make_unique<sf::CircleShape>())
+    : m_Components(components), m_Shape(std::make_unique<sf::CircleShape>())
 {
-
 }
 
 void GameScene::initialize()
@@ -24,19 +22,10 @@ void GameScene::processInput()
     }
 }
 
-void GameScene::update()
-{
-}
+void GameScene::update() {}
 
-void GameScene::render() const
-{
-    m_Components.m_RenderWindow->draw(*m_Shape);
-}
+void GameScene::render() const { m_Components.m_RenderWindow->draw(*m_Shape); }
 
-void GameScene::pause()
-{
-}
+void GameScene::pause() {}
 
-void GameScene::resume()
-{
-}
+void GameScene::resume() {}
