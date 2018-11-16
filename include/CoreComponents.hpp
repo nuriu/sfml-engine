@@ -12,12 +12,9 @@
 
 struct CoreComponents
 {
-    std::unique_ptr<SceneManager> m_SceneManager =
-        std::make_unique<SceneManager>();
-    std::unique_ptr<InputManager> m_InputManager =
-        std::make_unique<InputManager>();
-    std::unique_ptr<AssetManager> m_AssetManager =
-        std::make_unique<AssetManager>();
+    std::unique_ptr<SceneManager> m_SceneManager = std::make_unique<SceneManager>();
+    std::unique_ptr<InputManager> m_InputManager = std::make_unique<InputManager>();
+    std::unique_ptr<AssetManager> m_AssetManager = std::make_unique<AssetManager>();
 
     std::unique_ptr<sf::RenderWindow> m_RenderWindow;
 

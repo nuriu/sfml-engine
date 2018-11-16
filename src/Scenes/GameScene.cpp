@@ -9,9 +9,8 @@ void GameScene::initialize()
 {
     m_Shape->setRadius(100.f);
     m_Shape->setFillColor(sf::Color::Magenta);
-    m_Shape->setPosition(
-        m_Components.m_RenderWindow->getSize().x / 2.f - m_Shape->getRadius(),
-        m_Components.m_RenderWindow->getSize().y / 2.f - m_Shape->getRadius());
+    m_Shape->setPosition(m_Components.m_RenderWindow->getSize().x / 2.f - m_Shape->getRadius(),
+                         m_Components.m_RenderWindow->getSize().y / 2.f - m_Shape->getRadius());
 }
 
 void GameScene::processInput()
@@ -24,7 +23,10 @@ void GameScene::processInput()
 
 void GameScene::update() {}
 
-void GameScene::render() const { m_Components.m_RenderWindow->draw(*m_Shape); }
+void GameScene::render() const
+{
+    m_Components.m_RenderWindow->draw(*m_Shape);
+}
 
 void GameScene::pause() {}
 

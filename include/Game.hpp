@@ -13,8 +13,7 @@
 class Game
 {
   public:
-    Game(const sf::String& title, const unsigned int width,
-         const unsigned int height);
+    Game(const sf::String& title, unsigned int width, unsigned int height);
 
     void run();
 

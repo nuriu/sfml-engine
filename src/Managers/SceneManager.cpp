@@ -31,4 +31,7 @@ void SceneManager::popScene()
     }
 }
 
-ScenePtr& SceneManager::getActiveScene() { return m_Scenes.top(); }
+ScenePtr& SceneManager::getActiveScene()
+{
+    return m_Scenes.top();
+}
