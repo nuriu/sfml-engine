@@ -17,6 +17,9 @@ To analyze code with clang-tidy and cppcheck on Unix platforms, just run;
 
 > ./analyze.sh
 
+Following line should be added to lib/imgui-sfml/imgui-SFML.cpp file before first compiling;
+> #define IMGUI_USER_CONFIG "../imgui-sfml/imconfig-SFML.h"
+
 Tested with:
 
 - SFML 2.5.1
