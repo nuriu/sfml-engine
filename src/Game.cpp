@@ -61,8 +61,8 @@ void Game::update()
 
 void Game::render()
 {
-    ImGui::Begin("Hello, world!");
-    ImGui::Button("Look at this pretty button");
+    ImGui::Begin("Hello, GAME!");
+    ImGui::Button("github.com/nuriu/sfml-cmake-vscode");
     ImGui::End();
 
     m_Components->m_RenderWindow->clear();

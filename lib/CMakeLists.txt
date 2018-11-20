@@ -41,4 +41,27 @@ list(APPEND LIB_IMGUI_SFML_LIBRARIES ${OPENGL_LIBRARY} imgui)
 
 add_library(imgui-sfml STATIC ${LIB_IMGUI_SFML_SOURCES} ${LIB_IMGUI_SFML_HEADERS})
 target_include_directories(imgui-sfml PRIVATE ${LIB_IMGUI_INCLUDE_DIR})
-target_link_libraries(imgui-sfml PUBLIC ${LIB_IMGUI_SFML_LIBRARIES})
+target_link_libraries(imgui-sfml PRIVATE ${LIB_IMGUI_SFML_LIBRARIES})
+
+### TMXLITE
+
+list(APPEND LIB_TMXLITE_DIR tmxlite/tmxlite/)
+list(APPEND LIB_TMXLITE_INCLUDE_DIR ${LIB_TMXLITE_DIR}/include)
+
+list(APPEND LIB_TMXLITE_SOURCES
+        ${LIB_TMXLITE_DIR}/src/detail/pugixml.cpp
+        ${LIB_TMXLITE_DIR}/src/FreeFuncs.cpp
+        ${LIB_TMXLITE_DIR}/src/ImageLayer.cpp
+        ${LIB_TMXLITE_DIR}/src/Map.cpp
+        ${LIB_TMXLITE_DIR}/src/miniz.c
+        ${LIB_TMXLITE_DIR}/src/Object.cpp
+        ${LIB_TMXLITE_DIR}/src/ObjectGroup.cpp
+        ${LIB_TMXLITE_DIR}/src/Property.cpp
+        ${LIB_TMXLITE_DIR}/src/TileLayer.cpp
+        ${LIB_TMXLITE_DIR}/src/Tileset.cpp)
+
+list(APPEND LIB_TMXLITE_LIBRARIES)
+
+add_library(tmxlite STATIC ${LIB_TMXLITE_SOURCES})
+target_include_directories(tmxlite PRIVATE ${LIB_TMXLITE_INCLUDE_DIR})
+target_link_libraries(tmxlite PUBLIC ${LIB_IMGUI_SFML_LIBRARIES})

@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::unique_ptr<Game> game(new Game("Game", 1280, 720));
+    std::unique_ptr<Game> game(new Game("Game", 1280, 768));
 
     game->run();
 

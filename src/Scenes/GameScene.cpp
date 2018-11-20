@@ -1,7 +1,8 @@
 #include <Scenes/GameScene.hpp>
 
 GameScene::GameScene(const CoreComponents& components)
-    : m_Components(components), m_Shape(std::make_unique<sf::CircleShape>())
+    : m_Components(components)
+    , m_Shape(std::make_unique<sf::CircleShape>())
 {
 }
 
