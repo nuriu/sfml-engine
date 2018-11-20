@@ -3,6 +3,7 @@
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/System/Time.hpp>
 
 #include <Managers/SceneManager.hpp>
 #include <Managers/InputManager.hpp>
@@ -18,7 +19,7 @@ struct CoreComponents
 
     std::unique_ptr<sf::RenderWindow> m_RenderWindow;
 
-    float m_DeltaTime = 0.f;
+    std::unique_ptr<sf::Time> m_DeltaTime = std::make_unique<sf::Time>();
 };
 
 #endif // CORE_COMPONENTS_HPP

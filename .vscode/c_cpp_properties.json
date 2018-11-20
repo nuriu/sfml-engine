@@ -9,7 +9,7 @@
     },
     {
       "name": "Linux",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["${workspaceFolder}/include"],
       "compilerPath": "/usr/bin/g++.exe",
       "cStandard": "c11",
       "cppStandard": "c++17"

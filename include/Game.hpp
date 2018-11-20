@@ -5,6 +5,9 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <imgui/imgui.h>
+#include <imgui-sfml/imgui-SFML.h>
+
 #include <CoreComponents.hpp>
 #include <Scenes/GameScene.hpp>
 

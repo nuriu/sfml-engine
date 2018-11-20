@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # CREATE BUILD AND DEBUG FOLDERS
 mkdir -p build/debug
 cd build/debug

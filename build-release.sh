@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # CREATE BUILD AND RELEASE FOLDERS
 mkdir -p build/release
 cd build/release
