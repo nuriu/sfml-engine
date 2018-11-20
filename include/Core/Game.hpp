@@ -8,7 +8,7 @@
 #include <imgui/imgui.h>
 #include <imgui-sfml/imgui-SFML.h>
 
-#include <CoreComponents.hpp>
+#include <Core/CoreComponents.hpp>
 #include <Scenes/GameScene.hpp>
 
 #include <memory>

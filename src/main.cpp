@@ -1,6 +1,6 @@
 #include <memory>
 
-#include <Game.hpp>
+#include <Core/Game.hpp>
 
 int main()
 {

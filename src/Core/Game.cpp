@@ -1,4 +1,4 @@
-#include <Game.hpp>
+#include <Core/Game.hpp>
 
 // #define GAME_FULLSCREEN
 

@@ -2,18 +2,18 @@ cmake_minimum_required(VERSION 3.12)
 project(game)
 
 set(HEADERS
-        include/Game.hpp
-        include/CoreComponents.hpp
+        include/Core/Game.hpp
+        include/Core/CoreComponents.hpp
         include/Managers/AssetManager.hpp
         include/Managers/InputManager.hpp
         include/Managers/SceneManager.hpp
-        include/Scenes/Scene.hpp
+        include/Core/Scene.hpp
         include/Scenes/GameScene.hpp
         )
 
 set(SOURCES
         src/main.cpp
-        src/Game.cpp
+        src/Core/Game.cpp
         src/Managers/AssetManager.cpp
         src/Managers/InputManager.cpp
         src/Managers/SceneManager.cpp
