@@ -2,7 +2,7 @@
 
 > Project template for SFML development based on CMake build system.
 
-It supports building (via MinGW or via directly GCC on Unix) and debugging (via gdb) from inside of the VS Code (via C/C++ Extension).
+It supports building (via MinGW or via directly GCC on Unix) and debugging (via gdb) from VS Code (via C/C++ Extension).
 
 Have two VS Code tasks for debug and release builds respectively.
 
