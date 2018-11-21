@@ -2,7 +2,13 @@
 #define ENGINE_SCENE_MANAGER_HPP
 #pragma once
 
+#ifndef D
+#define D(x) x
+#endif
+
 #include <Engine/Scene.hpp>
+
+#include <spdlog/spdlog.h>
 
 #include <memory>
 #include <stack>

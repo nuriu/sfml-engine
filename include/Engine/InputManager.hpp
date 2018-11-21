@@ -2,10 +2,16 @@
 #define ENGINE_INPUT_MANAGER_HPP
 #pragma once
 
+#ifndef D
+#define D(x) x
+#endif
+
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/Keyboard.hpp>
+
+#include <spdlog/spdlog.h>
 
 #include <memory>
 

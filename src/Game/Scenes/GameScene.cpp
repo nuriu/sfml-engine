@@ -13,10 +13,7 @@ void GameScene::initialize()
                          m_Components.m_RenderWindow->getSize().y / 2.f - m_Shape->getRadius());
 }
 
-void GameScene::processInput()
-{
-    if (m_Components.m_InputManager->isKeyPressed(sf::Keyboard::H)) std::cout << "H is pressed." << std::endl;
-}
+void GameScene::processInput() {}
 
 void GameScene::update() {}
 

@@ -15,6 +15,7 @@ namespace Engine
         sf::VideoMode vm(width, height);
         m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(vm, title);
 #endif
+        D(m_Components->m_Logger->info("Created Application & {}x{} Window.", width, height);)
     }
 
     void Application::processEvents()

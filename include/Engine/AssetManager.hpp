@@ -2,10 +2,16 @@
 #define ENGINE_ASSET_MANAGER_HPP
 #pragma once
 
+#ifndef D
+#define D(x) x
+#endif
+
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
+
+#include <spdlog/spdlog.h>
 
 #include <string>
 #include <memory>

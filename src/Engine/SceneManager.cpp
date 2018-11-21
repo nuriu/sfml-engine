@@ -13,6 +13,8 @@ namespace Engine
 
         m_Scenes.push(std::move(scene));
         m_Scenes.top()->initialize();
+
+        D(spdlog::get("console")->info("Pushed scene.");)
     }
 
     void SceneManager::popScene()
@@ -22,6 +24,8 @@ namespace Engine
 
             if (!m_Scenes.empty()) m_Scenes.top()->resume();
         }
+
+        D(spdlog::get("console")->info("Poped scene.");)
     }
 
     ScenePtr& SceneManager::getActiveScene() { return m_Scenes.top(); }
