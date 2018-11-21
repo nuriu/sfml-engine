@@ -3,10 +3,14 @@
 	url = https://github.com/ocornut/imgui
 	branch = master
 [submodule "lib/imgui-sfml"]
-    path = lib/imgui-sfml
-    url = https://github.com/eliasdaler/imgui-sfml
-    branch = master
+	path = lib/imgui-sfml
+	url = https://github.com/eliasdaler/imgui-sfml
+	branch = master
 [submodule "lib/tmxlite"]
 	path = lib/tmxlite
 	url = https://github.com/fallahn/tmxlite.git
-    branch = master
+	branch = master
+[submodule "lib/spdlog"]
+	path = lib/spdlog
+	url = https://github.com/gabime/spdlog.git
+	branch = master

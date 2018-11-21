@@ -61,5 +61,11 @@ endif()
 
 add_subdirectory(lib/)
 
-target_include_directories(game PRIVATE include/ lib/tmxlite/tmxlite/include/ lib/)
+target_include_directories(game PRIVATE
+        include/
+        lib/spdlog/include/
+        lib/imgui/
+        lib/imgui-sfml/
+        lib/tmxlite/tmxlite/include/)
+
 target_link_libraries(game PRIVATE sfml-graphics sfml-network sfml-audio imgui-sfml tmxlite)

@@ -1,7 +1,6 @@
 ### IMGUI
 
 list(APPEND LIB_IMGUI_DIR imgui/)
-list(APPEND LIB_IMGUI_INCLUDE_DIR ${LIB_IMGUI_DIR})
 
 list(APPEND LIB_IMGUI_HEADERS
         "${LIB_IMGUI_DIR}/imgui_internal.h"
@@ -18,18 +17,14 @@ list(APPEND LIB_IMGUI_SOURCES
         "${LIB_IMGUI_DIR}/imgui_draw.cpp"
         "${LIB_IMGUI_DIR}/imgui_widgets.cpp")
 
-list(APPEND LIB_IMGUI_LIBRARIES)
-
 add_library(imgui STATIC ${LIB_IMGUI_SOURCES} ${LIB_IMGUI_HEADERS})
-target_include_directories(imgui PRIVATE ${LIB_IMGUI_INCLUDE_DIR})
-target_link_libraries(imgui PUBLIC ${LIB_IMGUI_LIBRARIES})
+target_include_directories(imgui PRIVATE ${LIB_IMGUI_DIR})
 
 ### IMGUI-SFML
 
 find_package(OpenGL REQUIRED)
 
 list(APPEND LIB_IMGUI_SFML_DIR imgui-sfml/)
-list(APPEND LIB_IMGUI_SFML_INCLUDE_DIR ${LIB_IMGUI_INCLUDE_DIR} ${LIB_IMGUI_SFML_DIR})
 
 list(APPEND LIB_IMGUI_SFML_HEADERS
         "${LIB_IMGUI_SFML_DIR}/imgui-SFML.h")
@@ -40,13 +35,13 @@ list(APPEND LIB_IMGUI_SFML_SOURCES
 list(APPEND LIB_IMGUI_SFML_LIBRARIES ${OPENGL_LIBRARY} imgui)
 
 add_library(imgui-sfml STATIC ${LIB_IMGUI_SFML_SOURCES} ${LIB_IMGUI_SFML_HEADERS})
-target_include_directories(imgui-sfml PRIVATE ${LIB_IMGUI_INCLUDE_DIR})
+target_include_directories(imgui-sfml PRIVATE ${LIB_IMGUI_SFML_DIR} ${LIB_IMGUI_DIR})
 target_link_libraries(imgui-sfml PRIVATE ${LIB_IMGUI_SFML_LIBRARIES})
 
 ### TMXLITE
 
 list(APPEND LIB_TMXLITE_DIR tmxlite/tmxlite/)
-list(APPEND LIB_TMXLITE_INCLUDE_DIR ${LIB_TMXLITE_DIR}/include)
+list(APPEND LIB_TMXLITE_INCLUDE_DIR ${LIB_TMXLITE_DIR}/include/)
 
 list(APPEND LIB_TMXLITE_SOURCES
         ${LIB_TMXLITE_DIR}/src/detail/pugixml.cpp
@@ -60,8 +55,5 @@ list(APPEND LIB_TMXLITE_SOURCES
         ${LIB_TMXLITE_DIR}/src/TileLayer.cpp
         ${LIB_TMXLITE_DIR}/src/Tileset.cpp)
 
-list(APPEND LIB_TMXLITE_LIBRARIES)
-
 add_library(tmxlite STATIC ${LIB_TMXLITE_SOURCES})
 target_include_directories(tmxlite PRIVATE ${LIB_TMXLITE_INCLUDE_DIR})
-target_link_libraries(tmxlite PUBLIC ${LIB_IMGUI_SFML_LIBRARIES})

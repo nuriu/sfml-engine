@@ -5,8 +5,8 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <imgui/imgui.h>
-#include <imgui-sfml/imgui-SFML.h>
+#include <imgui.h>
+#include <imgui-SFML.h>
 
 #include <Engine/Components.hpp>
 
