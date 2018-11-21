@@ -1,12 +1,13 @@
 #include <memory>
 
-#include <Core/Game.hpp>
+#include <Engine/Application.hpp>
+#include <Game/Scenes/GameScene.hpp>
 
 int main()
 {
-    std::unique_ptr<Game> game(new Game("Game", 1280, 768));
+    auto game = std::make_unique<Engine::Application>("GAME", 1280, 768);
 
-    game->run();
+    game->run<GameScene>();
 
     return EXIT_SUCCESS;
 }

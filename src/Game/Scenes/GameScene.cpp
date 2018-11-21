@@ -1,8 +1,7 @@
-#include <Scenes/GameScene.hpp>
+#include <Game/Scenes/GameScene.hpp>
 
-GameScene::GameScene(const CoreComponents& components)
-    : m_Components(components)
-    , m_Shape(std::make_unique<sf::CircleShape>())
+GameScene::GameScene(const Engine::Components& components)
+    : m_Components(components), m_Shape(std::make_unique<sf::CircleShape>())
 {
 }
 
@@ -16,18 +15,12 @@ void GameScene::initialize()
 
 void GameScene::processInput()
 {
-    if (m_Components.m_InputManager->isKeyPressed(sf::Keyboard::H))
-    {
-        std::cout << "H is pressed." << std::endl;
-    }
+    if (m_Components.m_InputManager->isKeyPressed(sf::Keyboard::H)) std::cout << "H is pressed." << std::endl;
 }
 
 void GameScene::update() {}
 
-void GameScene::render() const
-{
-    m_Components.m_RenderWindow->draw(*m_Shape);
-}
+void GameScene::render() const { m_Components.m_RenderWindow->draw(*m_Shape); }
 
 void GameScene::pause() {}
 
