@@ -1,24 +1,29 @@
 cmake_minimum_required(VERSION 3.12)
 project(game)
 
-set(HEADERS
-        include/Engine/Application.hpp
-        include/Engine/Scene.hpp
-        include/Engine/AssetManager.hpp
-        include/Engine/InputManager.hpp
-        include/Engine/SceneManager.hpp
-        include/Engine/Components.hpp
-        include/Game/Scenes/GameScene.hpp
-        )
+list(APPEND HEADERS
+        "${CMAKE_SOURCE_DIR}/include/Engine/Application.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Engine/Scene.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Engine/AssetManager.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Engine/InputManager.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Engine/SceneManager.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Engine/Components.hpp"
+        "${CMAKE_SOURCE_DIR}/include/Game/Scenes/GameScene.hpp")
 
-set(SOURCES
-        src/main.cpp
-        src/Engine/Application.cpp
-        src/Engine/AssetManager.cpp
-        src/Engine/InputManager.cpp
-        src/Engine/SceneManager.cpp
-        src/Game/Scenes/GameScene.cpp
-        )
+list(APPEND SOURCES
+        "${CMAKE_SOURCE_DIR}/src/main.cpp"
+        "${CMAKE_SOURCE_DIR}/src/Engine/Application.cpp"
+        "${CMAKE_SOURCE_DIR}/src/Engine/AssetManager.cpp"
+        "${CMAKE_SOURCE_DIR}/src/Engine/InputManager.cpp"
+        "${CMAKE_SOURCE_DIR}/src/Engine/SceneManager.cpp"
+        "${CMAKE_SOURCE_DIR}/src/Game/Scenes/GameScene.cpp")
+
+list(APPEND GAME_INCLUDE_DIRS
+        "${CMAKE_SOURCE_DIR}/include/"
+        "${CMAKE_SOURCE_DIR}/lib/spdlog/include/"
+        "${CMAKE_SOURCE_DIR}/lib/imgui/"
+        "${CMAKE_SOURCE_DIR}/lib/imgui-sfml/"
+        "${CMAKE_SOURCE_DIR}/lib/tmxlite/tmxlite/include/")
 
 source_group("Headers" FILES ${HEADERS})
 source_group("Sources" FILES ${SOURCES})
@@ -56,17 +61,19 @@ else()
             -Wdouble-promotion # warn if float is implicit promoted to double
             -Wformat=2 # warn on security issues around functions that format output (ie printf)
             -std=c++17
-            "$<$<CONFIG:DEBUG>:-DDEBUG>"
-            )
+            "$<$<CONFIG:DEBUG>:-DDEBUG>")
 endif()
 
 add_subdirectory(lib/)
 
-target_include_directories(game PRIVATE
-        include/
-        lib/spdlog/include/
-        lib/imgui/
-        lib/imgui-sfml/
-        lib/tmxlite/tmxlite/include/)
-
+target_include_directories(game PRIVATE ${GAME_INCLUDE_DIRS})
 target_link_libraries(game PRIVATE sfml-graphics sfml-network sfml-audio imgui-sfml tmxlite)
+
+add_custom_target(clang-format COMMAND clang-format -style=file -i ${SOURCES} ${HEADERS})
+add_custom_target(cppcheck COMMAND cppcheck -i${CMAKE_SOURCE_DIR}/lib/ ${SOURCES} -I ${GAME_INCLUDE_DIRS} --enable=all --inconclusive --quiet)
+add_custom_target(clang-tidy COMMAND clang-tidy ${SOURCES} -export-fixes='.clang-tidy-fixes' -checks=*,-abseil*,-android*,-fuchsia-default*,-hicpp-braces-around*,-google-readability-braces-around* -- -std=c++17
+        -I "${CMAKE_SOURCE_DIR}/include/"
+        -I "${CMAKE_SOURCE_DIR}/lib/spdlog/include/"
+        -I "${CMAKE_SOURCE_DIR}/lib/imgui/"
+        -I "${CMAKE_SOURCE_DIR}/lib/imgui-sfml/"
+        -I "${CMAKE_SOURCE_DIR}/lib/tmxlite/tmxlite/include/")

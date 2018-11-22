@@ -4,17 +4,15 @@
 
 It supports building (via MinGW or via directly GCC on Unix) and debugging (via gdb) from VS Code (via C/C++ Extension).
 
-Have two VS Code tasks for debug and release builds respectively.
-
-You can find Bash and Bat script files which used for building in the root of the source tree.
+Have two VS Code tasks for debug and release builds respectively and you can find Bash and Bat script files which used for building in the root of the source tree.
 
 Following environment variables should exist before building (Win32 only);
 
 - SFML_ROOT should point to sfml root directory
 - MinGW_LOCATION should point to mingw directory
 
-To analyze code with clang-tidy and cppcheck on Unix platforms, just run;
-
+Added clang-format, clang-tidy and cppcheck as a cmake targets. In order to use them their executables should be accessible. (in PATH for Win32 etc.)
+Or running cppcheck, clang-format and clang-tidy only for changed files with;
 > ./analyze.sh
 
 Following line should be added to lib/imgui-sfml/imgui-SFML.cpp file before first compiling;
