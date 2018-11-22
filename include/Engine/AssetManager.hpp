@@ -2,10 +2,6 @@
 #define ENGINE_ASSET_MANAGER_HPP
 #pragma once
 
-#ifndef D
-#define D(x) x
-#endif
-
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Audio/Sound.hpp>
@@ -19,7 +15,7 @@
 
 namespace Engine
 {
-    class AssetManager
+    class AssetManager final
     {
       public:
         void         loadFont(const std::string& name, const std::string& path);

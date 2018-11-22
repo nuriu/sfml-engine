@@ -2,10 +2,6 @@
 #define ENGINE_SCENE_MANAGER_HPP
 #pragma once
 
-#ifndef D
-#define D(x) x
-#endif
-
 #include <Engine/Scene.hpp>
 
 #include <spdlog/spdlog.h>
@@ -17,7 +13,7 @@ namespace Engine
 {
     using ScenePtr = std::unique_ptr<Scene>;
 
-    class SceneManager
+    class SceneManager final
     {
       public:
         void      pushScene(ScenePtr scene, bool makeCurrent);

@@ -2,10 +2,6 @@
 #define ENGINE_INPUT_MANAGER_HPP
 #pragma once
 
-#ifndef D
-#define D(x) x
-#endif
-
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Mouse.hpp>
@@ -17,7 +13,7 @@
 
 namespace Engine
 {
-    class InputManager
+    class InputManager final
     {
       public:
         std::unique_ptr<sf::Event> m_Event;

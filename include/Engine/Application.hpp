@@ -14,10 +14,10 @@
 
 namespace Engine
 {
-    class Application
+    class Application final
     {
       public:
-        Application(const sf::String& title, unsigned int width, unsigned int height);
+        Application(const sf::String& title, unsigned int width, unsigned int height, const bool fullscreen = false);
 
         template<typename T> void run()
         {

@@ -1,20 +1,20 @@
 #include <Engine/Application.hpp>
 
-// #define GAME_FULLSCREEN
-
 namespace Engine
 {
-    Application::Application(const sf::String& title, const unsigned int width, const unsigned int height)
+    Application::Application(const sf::String& title, const unsigned int width, const unsigned int height,
+                             const bool fullscreen)
         : m_Components(std::make_shared<Components>()), m_Clock(std::make_unique<sf::Clock>())
     {
-#ifdef GAME_FULLSCREEN
-        auto desktop                 = sf::VideoMode::getDesktopMode();
-        auto windowMode              = sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel);
-        m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(windowMode, title, sf::Style::Fullscreen);
-#else
-        sf::VideoMode vm(width, height);
-        m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(vm, title);
-#endif
+        if (fullscreen) {
+            auto desktop                 = sf::VideoMode::getDesktopMode();
+            auto windowMode              = sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel);
+            m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(windowMode, title, sf::Style::Fullscreen);
+        } else {
+            sf::VideoMode vm(width, height);
+            m_Components->m_RenderWindow = std::make_unique<sf::RenderWindow>(vm, title);
+        }
+
         D(m_Components->m_Logger->info("Created Application & {}x{} Window.", width, height);)
     }
 

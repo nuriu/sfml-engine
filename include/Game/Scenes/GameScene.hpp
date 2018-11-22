@@ -12,10 +12,10 @@
 #include <memory>
 #include <iostream>
 
-class GameScene : public Engine::Scene
+class GameScene final : public Engine::Scene
 {
   public:
-    GameScene(const Engine::Components& components);
+    explicit GameScene(const Engine::Components& components);
 
     void initialize() override;
     void processInput() override;

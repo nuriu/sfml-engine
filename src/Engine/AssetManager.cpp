@@ -8,9 +8,13 @@ namespace Engine
 
         if (font->loadFromFile(path)) {
             m_Fonts[name] = *font;
-            D(spdlog::get("console")->info("Loaded font named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->info("Loaded font named {} from {}.", name, path);
+#endif
         } else {
-            D(spdlog::get("console")->error("Couldn't load font named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->error("Couldn't load font named {} from {}.", name, path);
+#endif
         }
     }
 
@@ -21,9 +25,13 @@ namespace Engine
         if (buffer->loadFromFile(path)) {
             m_SoundBuffers[name] = *buffer;
             m_Sounds[name]       = sf::Sound(m_SoundBuffers[name]);
-            D(spdlog::get("console")->info("Loaded sound named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->info("Loaded sound named {} from {}.", name, path);
+#endif
         } else {
-            D(spdlog::get("console")->error("Couldn't load sound named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->error("Couldn't load sound named {} from {}.", name, path);
+#endif
         }
     }
 
@@ -33,9 +41,13 @@ namespace Engine
 
         if (texture->loadFromFile(path)) {
             m_Textures[name] = *texture;
-            D(spdlog::get("console")->info("Loaded texture named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->info("Loaded texture named {} from {}.", name, path);
+#endif
         } else {
-            D(spdlog::get("console")->error("Couldn't load texture named {} from {}.", name, path);)
+#ifdef DEBUG
+            spdlog::get("console")->error("Couldn't load texture named {} from {}.", name, path);
+#endif
         }
     }
 
