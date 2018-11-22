@@ -44,10 +44,6 @@ namespace Engine
 
     void Application::render()
     {
-        ImGui::Begin("Hello, GAME!");
-        ImGui::Button("github.com/nuriu/sfml-cmake-vscode");
-        ImGui::End();
-
         m_Components->m_RenderWindow->clear();
         m_Components->m_SceneManager->getActiveScene()->render();
 

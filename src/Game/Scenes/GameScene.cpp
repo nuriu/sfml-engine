@@ -17,7 +17,14 @@ void GameScene::processInput() {}
 
 void GameScene::update() {}
 
-void GameScene::render() const { m_Components.m_RenderWindow->draw(*m_Shape); }
+void GameScene::render() const
+{
+    ImGui::Begin("Hello, GAME!");
+    ImGui::Button("github.com/nuriu/sfml-cmake-vscode");
+    ImGui::End();
+
+    m_Components.m_RenderWindow->draw(*m_Shape);
+}
 
 void GameScene::pause() {}
 

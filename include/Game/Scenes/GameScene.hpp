@@ -6,6 +6,8 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <imgui.h>
+
 #include <Engine/Scene.hpp>
 #include <Engine/Components.hpp>
 
