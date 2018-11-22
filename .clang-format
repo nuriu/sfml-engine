@@ -1,4 +1,5 @@
-﻿AccessModifierOffset: -2
+﻿---
+AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: true
 AlignConsecutiveDeclarations: true
@@ -49,3 +50,4 @@ Language: Cpp
 Standard: Cpp11
 TabWidth: 4
 UseTab: Never
+---
