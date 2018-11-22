@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-abseil*,-android*,-fuchsia-default*,-hicpp-braces-around*,-google-readability-braces-around*'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-abseil*,-android*,-fuchsia-default*,-hicpp-braces-around*,-google-readability-braces-around*,-llvm-include-order*'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
