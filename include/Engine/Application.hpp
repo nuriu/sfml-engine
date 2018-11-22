@@ -1,5 +1,5 @@
-#ifndef ENGINE_GAME_HPP
-#define ENGINE_GAME_HPP
+#ifndef ENGINE_APPLICATION_HPP
+#define ENGINE_APPLICATION_HPP
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -17,7 +17,7 @@ namespace Engine
     class Application final
     {
       public:
-        Application(const sf::String& title, unsigned int width, unsigned int height, const bool fullscreen = false);
+        Application(const sf::String& title, unsigned int width, unsigned int height, bool fullscreen = false);
 
         template<typename T> void run()
         {
@@ -45,4 +45,4 @@ namespace Engine
     };
 } // namespace Engine
 
-#endif // ENGINE_GAME_HPP
+#endif // ENGINE_APPLICATION_HPP
